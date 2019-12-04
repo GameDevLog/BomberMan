@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -12,6 +13,16 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         MovePlayer();
+
+        if (Input.GetKeyDown("space"))
+        {
+            // Get current scene name
+            string scene = SceneManager.GetActiveScene().name;
+            // Load it
+            SceneManager.LoadScene(scene, LoadSceneMode.Single);
+            // Resume it
+            Resume();
+        }
     }
 
     void MovePlayer()
@@ -40,5 +51,23 @@ public class PlayerScript : MonoBehaviour
         }
 
         transform.position = currentPosition;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Bomb")
+        {
+            Parse();
+        }
+    }
+
+    void Parse()
+    {
+        Time.timeScale = 0.0f;
+    }
+
+    void Resume()
+    {
+        Time.timeScale = 1.0f;
     }
 }

@@ -7,12 +7,11 @@ public class CollectorScript : MonoBehaviour
 {
     public Text scoreText;
     private int score;
+    private static int highScore;
 
-    void IncreaseScore()
+    private void Start()
     {
-        score++;
-
-        scoreText.text = "Score: " + score;
+        DisplayScore();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,5 +21,22 @@ public class CollectorScript : MonoBehaviour
             IncreaseScore();
             collision.gameObject.SetActive(false);
         }
+    }
+
+    void DisplayScore()
+    {
+        scoreText.text = "High Score: " + highScore + "\nScore: " + score;
+    }
+
+    void IncreaseScore()
+    {
+        score++;
+
+        if (score > highScore)
+        {
+            highScore = score;
+        }
+
+        DisplayScore();
     }
 }
