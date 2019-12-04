@@ -1,18 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CollectorScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Text scoreText;
+    private int score;
+
+    void IncreaseScore()
     {
-        
+        score++;
+
+        scoreText.text = "Score: " + score;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.tag == "Bomb")
+        {
+            IncreaseScore();
+            collision.gameObject.SetActive(false);
+        }
     }
 }
