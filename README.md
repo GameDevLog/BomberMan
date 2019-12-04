@@ -1,12 +1,20 @@
-# GameDevLogTemplete
+# BomberMan
 ---
 
-游戏开发日志模板
+Bomber Man / 炸弹人
 
 | IDE / 开发工具 | Version / 版本 |
 |:---:|:---|
 | macOS Catalina  | 10.15.1 |
 | Unity | 2019.2.14f1 Personal |
+
+## ScreenShots / 游戏截图
+
+![BomberMna](Screenshots/BomberMan.png)
+
+## Game Dev Log / 游戏开发日志
+
+[Bomber Man](https://game.iosdevlog.com/2019/12/04/Bomber-Man/)
 
 ## Games List / 游戏列表
 
